@@ -1,4 +1,4 @@
-require "dictionary/version"
+require_relative "dictionary/version"
 
 module Dictionary
   class Error < StandardError; end

@@ -1,0 +1,4 @@
+#!/usr/bin/env Ruby
+
+require 'dictionary'
+Dictionary::CLI.new.call
