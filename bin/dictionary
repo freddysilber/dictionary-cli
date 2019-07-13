@@ -1,4 +1,9 @@
-#!/usr/bin/env Ruby
+#!/usr/bin/ruby
 
-require 'dictionary'
+# require_relative 'dictionary'
+# require_relative './lib/dictionary/cli.rb'
+# Dictionary::CLI.new.call
+
+require_relative '../lib/dictionary/cli.rb'
+puts "hey"
 Dictionary::CLI.new.call

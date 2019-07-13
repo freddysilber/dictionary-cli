@@ -1,6 +1,2 @@
 require_relative "dictionary/version"
-
-module Dictionary
-  class Error < StandardError; end
-  # Your code goes here...
-end
+require_relative './dictionary/cli'
