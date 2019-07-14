@@ -1,6 +1,6 @@
 # Dictionary
 
-dictionary cli
+Ruby CLI Dictionary Gem 
 
 ## Installation
 
@@ -19,7 +19,7 @@ Or install it yourself as:
     $ gem install dictionary
 
 ## Usage
-usage instructions here
+Search in the command line for a word and recieve its definition
 
 ## Development
 

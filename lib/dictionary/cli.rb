@@ -16,6 +16,7 @@ class Dictionary::CLI
         @word = Dictionary::Word.today
         puts "--- #{@word.word_name}"
         puts "------ #{@word.part_of_speech}"
+        puts "------ #{@word.pronounciation}"
         puts "------ Definition A: #{@word.definition}"
         puts
     end
@@ -38,16 +39,18 @@ class Dictionary::CLI
         puts
         puts "-- Searching for word: #{@word_to_search}..."
         @word_searched = Dictionary::Word.search_for_word(@word_to_search)
-        display_word
-    end
-
-    def display_word
-        puts
         puts "--- #{@word_searched.word_name}"
         puts "------ #{@word_searched.part_of_speech}"
-        puts "------ #{@word_searched.definition}"
-        puts 
+        # display_word
     end
+
+    # def display_word
+    #     puts
+    #     puts "--- #{@word_searched.word_name}"
+    #     puts "------ #{@word_searched.part_of_speech}"
+    #     puts "------ #{@word_searched.definition}"
+    #     puts 
+    # end
 
     def search_again?
         puts "----------------------------------------------------"
