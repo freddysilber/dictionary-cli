@@ -17,7 +17,7 @@ class Dictionary::CLI
         puts "--- #{@word.word_name}"
         puts "------ #{@word.part_of_speech}"
         puts "------ #{@word.pronounciation}"
-        puts "------ Definition A: #{@word.definition}"
+        puts "------ Definition: #{@word.definition}"
         puts
     end
     
@@ -26,7 +26,7 @@ class Dictionary::CLI
         puts "-- Search for a word..."
         input = gets.downcase.strip
         puts
-        puts "-- The word you searched is #{input}. Is that correct? (Y/N)"
+        puts "-- The word you searched is #{input.upcase}. Is that correct? (Y/N)"
         confirmation = gets.downcase.strip
         if confirmation == "N" || confirmation == "n" || confirmation == "no" || confirmation == "NO"
             get_user_input
@@ -37,27 +37,25 @@ class Dictionary::CLI
 
     def search_for_word
         puts
-        puts "-- Searching for word: #{@word_to_search}..."
+        puts "-- Searching for word: #{@word_to_search.upcase}..."
         @word_searched = Dictionary::Word.search_for_word(@word_to_search)
+        puts
         puts "--- #{@word_searched.word_name}"
         puts "------ #{@word_searched.part_of_speech}"
-        # display_word
+        # puts "------ #{@word_searched.pronounciation}"
+        # puts "------ Definition: #{@word_searched.definition}"
+        puts
     end
 
-    # def display_word
-    #     puts
-    #     puts "--- #{@word_searched.word_name}"
-    #     puts "------ #{@word_searched.part_of_speech}"
-    #     puts "------ #{@word_searched.definition}"
-    #     puts 
-    # end
-
     def search_again?
+        puts
         puts "----------------------------------------------------"
         puts "--- Would you like to search for another word? (Y/N)"
         input = gets.strip
         if input == "N" || input == "n" || input == "NO" || input == "no"
+            puts
             puts "See you later!"
+            puts
         else
             self.call
         end
