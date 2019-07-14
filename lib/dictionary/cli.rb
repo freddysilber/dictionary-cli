@@ -19,7 +19,7 @@ class Dictionary::CLI
         puts "show definition here"
         @word = Dictionary::Word.today
     end
-
+    # here is a test
     def search_for_word
         puts "Search for a word..."
         input = gets.upcase.strip
