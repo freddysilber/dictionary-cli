@@ -2,13 +2,11 @@ class Dictionary::Word
     attr_accessor :word_name, :part_of_speech, :definition, :pronounciation
 
     def self.today
-        puts "HERE IS THE WORD OF THE DAY"
-        puts "we are in the word class now"
-        word_1 = self.new
-        word_1.word_name = "Button"
-        word_1.part_of_speech = "Noun"
-        word_1.definition = "A thing you use to push or click."
-        word_1.pronounciation = "{!x Bu + ton}"
-        word_1
+        word_of_the_day = self.new
+        word_of_the_day.word_name = "Cat"
+        word_of_the_day.part_of_speech = "noun, often attributive"
+        word_of_the_day.definition = "Definition A: a carnivorous mammal (Felis catus) long domesticated as a pet and for catching rats and mice."
+        word_of_the_day
+        return word_of_the_day
     end
 end

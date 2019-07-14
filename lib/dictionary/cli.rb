@@ -15,16 +15,17 @@ class Dictionary::CLI
 
     def show_word_the_day
         puts "The word of the day is:"
-        puts "Cat -- noun"
-        puts "show definition here"
         @word = Dictionary::Word.today
+        puts "--- #{@word.word_name}"
+        puts "------ #{@word.part_of_speech}"
+        puts "------ #{@word.definition}"
     end
-    # here is a test
+    
     def search_for_word
-        puts "Search for a word..."
+        puts "-- Search for a word..."
         input = gets.upcase.strip
-        puts "You searched #{input}. Is that correct? (Y/N)"
+        puts "-- The word you searched #{input}. Is that correct? (Y/N)"
         confirmation = gets.upcase.strip
-        puts confirmation
+        puts "-- " + confirmation
     end
 end
