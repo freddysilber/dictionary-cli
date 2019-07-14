@@ -9,5 +9,6 @@ class Dictionary::Word
     # end
     def self.today
         puts "HERE IS THE WORD OF THE DAY"
+        puts "we are in the word class now"
     end
 end
