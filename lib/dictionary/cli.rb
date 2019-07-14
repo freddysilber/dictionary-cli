@@ -1,18 +1,11 @@
 # CLI Controller
 # ./bin/dictionary
-# show_word_the_day
-# ask for user input
-# user searches
-# shows word and deffinition
-# asks to search again (and if previous word has no results)
-# user can exit at any time
 class Dictionary::CLI
     def call  
         show_word_the_day
         get_user_input
         search_for_word
         search_again?
-        # ask if user wants to search again
     end
 
     def show_word_the_day
