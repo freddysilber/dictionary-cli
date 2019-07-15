@@ -42,8 +42,8 @@ class Dictionary::CLI
         puts
         puts "--- #{@word_searched.word_name}"
         puts "------ #{@word_searched.part_of_speech}"
-        # puts "------ #{@word_searched.pronounciation}"
-        # puts "------ Definition: #{@word_searched.definition}"
+        puts "------ #{@word_searched.pronounciation}"
+        puts "------ Definition: #{@word_searched.definition}"
         puts
     end
 

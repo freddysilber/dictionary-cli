@@ -16,8 +16,8 @@ class Dictionary::Word
         search = self.new
         search.word_name = doc.css('.hword')[0].text
         search.part_of_speech = doc.css('.col-lg-12 span')[0].text
-        # search.definition = doc.css('.sb-0 .sense.has-sn .dt span strong').text
-        # search.pronounciation = doc.css('.col .word-syllables')[0].text
+        search.definition = doc.css('.dtText').text
+        search.pronounciation = doc.css('.pr')[0].text
         search
     end
 end
