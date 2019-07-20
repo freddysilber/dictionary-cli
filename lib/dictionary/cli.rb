@@ -23,7 +23,7 @@ class Dictionary::CLI
     
     def get_user_input
         puts
-        puts "-- Search for a word..."
+        puts "-- Search for a word or type 'exit'..."
         input = gets.downcase.strip
         puts
         puts "-- The word you searched is #{input.upcase}. Is that correct? (Y/N)"
