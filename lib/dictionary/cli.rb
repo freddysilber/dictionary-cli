@@ -9,7 +9,7 @@ class Dictionary::CLI
         search_again?
     end
     #####################
-
+    
     def show_word_the_day
         puts "\nWelxome to Merriam Webster online Dictionary!"
         puts Date.today
