@@ -1,0 +1,4 @@
+class Dictionary:Scraper
+    
+
+end
