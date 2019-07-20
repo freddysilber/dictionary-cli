@@ -1,41 +1,26 @@
 # CLI Controller
 class Dictionary::CLI
+
+    #####################
     def call  
         show_word_the_day
         get_user_input
         search_for_word
         search_again?
     end
+    #####################
 
     def show_word_the_day
-        puts "\n Welxome to Merriam Webster online Dictionary!"
+        puts "\nWelxome to Merriam Webster online Dictionary!"
         puts Date.today
         puts "the word of the day is : \n"
-        @word = Dictionary::Word.word_of_the_day
-        puts "--- #{@word.word_name}"
-        puts "------ #{@word.part_of_speech}"
-        puts "------ #{@word.pronounciation}"
-        puts "------ #{@word.definition} \n"
-        # puts "\n Welcome to Merriam Webster online Dictionary!"
-        # puts Date.today
-        # puts "The word of the day is: \n"
-        # @word = Dictionary::Word.today
-        # puts "--- #{@word.word_name}"
-        # puts "------ #{@word.part_of_speech}"
-        # puts "------ #{@word.pronounciation}"
-        # puts "------ Definition: #{@word.definition} \n"
-
-
+        @word_of_the_day = Dictionary::Scraper.get_word_of_day
+        Dictionary::Word.new_word_of_the_day(@word_of_the_day)
         # puts Dictionary::Word.all
-        # @word_of_the_day = Dictionary::Word.word_of_the_day
-        # puts @word_of_the_day
-        # @word = Dictionary::Scraper.get_word_of_day
-        # puts @word
-
-        # puts "--- #{@word.word_name}"
-        # puts "------ #{@word.part_of_speech}"
-        # puts "------ #{@word.pronounciation}"
-        # puts "------ Definition: #{@word.definition} \n"
+        puts "\n--- #{@word_of_the_day[:word_name]}"
+        puts "------ #{@word_of_the_day[:part_of_speech]}"
+        puts "------ #{@word_of_the_day[:pronounciation]}"
+        puts "------ #{@word_of_the_day[:definition]}"
     end
     
     def get_user_input
@@ -44,7 +29,6 @@ class Dictionary::CLI
         puts
         if input == "exit"
             @exit = true
-            # goodbye_message
         else 
             puts "-- The word you searched is #{input.upcase}. Is that correct? (Y/N)"
             confirmation = gets.downcase.strip
@@ -87,4 +71,5 @@ class Dictionary::CLI
     def goodbye_message
         puts "See you later!"
     end
+    
 end
