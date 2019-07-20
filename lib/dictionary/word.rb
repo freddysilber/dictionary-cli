@@ -11,7 +11,7 @@ class Dictionary::Word
         word_of_the_day
     end
 
-    def self.search_for_word(word)
+    def self.search_for_word_merriam(word)
         doc = Nokogiri::HTML(open("https://www.merriam-webster.com/dictionary/#{word}"))
         search = self.new
         search.word_name = doc.css('.hword')[0].text

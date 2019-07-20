@@ -26,19 +26,23 @@ class Dictionary::CLI
         puts "-- Search for a word or type 'exit'..."
         input = gets.downcase.strip
         puts
-        puts "-- The word you searched is #{input.upcase}. Is that correct? (Y/N)"
-        confirmation = gets.downcase.strip
-        if confirmation == "N" || confirmation == "n" || confirmation == "no" || confirmation == "NO"
-            get_user_input
-        else
-            @word_to_search = input
+        if input == "exit"
+            goodbye_message
+        else 
+            puts "-- The word you searched is #{input.upcase}. Is that correct? (Y/N)"
+            confirmation = gets.downcase.strip
+            if confirmation == "N" || confirmation == "n" || confirmation == "no" || confirmation == "NO"
+                get_user_input
+            else
+                @word_to_search = input
+            end
         end
     end
 
     def search_for_word
         puts
         puts "-- Searching for word: #{@word_to_search.upcase}..."
-        @word_searched = Dictionary::Word.search_for_word(@word_to_search)
+        @word_searched = Dictionary::Word.search_for_word_merriam(@word_to_search)
         puts
         puts "--- #{@word_searched.word_name}"
         puts "------ #{@word_searched.part_of_speech}"
@@ -54,10 +58,14 @@ class Dictionary::CLI
         input = gets.strip
         if input == "N" || input == "n" || input == "NO" || input == "no"
             puts
-            puts "See you later!"
+            goodbye_message
             puts
         else
             self.call
         end
+    end
+
+    def goodbye_message
+        puts "See you later!"
     end
 end
