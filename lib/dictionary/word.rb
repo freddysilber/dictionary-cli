@@ -1,6 +1,7 @@
 class Dictionary::Word
+    # SCRAPER ??
     attr_accessor :word_name, :part_of_speech, :definition, :pronounciation
-
+    # @@all = []
     def self.today
         doc = Nokogiri::HTML(open("https://www.merriam-webster.com/word-of-the-day"))
         word_of_the_day = self.new
@@ -21,3 +22,16 @@ class Dictionary::Word
         search
     end
 end
+
+# fix error when word is not found
+# formatting ??? (cli)
+# break up scraper class and word classes for more object oriented approach
+
+#  searching the number '0' and numbers ?
+#  color coding gem ? or diplay as table. 'tty Table gem'
+case (var)
+    when var < 0
+        puts "here"
+    break;
+    #  sunsetter. OBS (screen recording)
+    

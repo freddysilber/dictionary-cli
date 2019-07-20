@@ -9,21 +9,17 @@ class Dictionary::CLI
     end
 
     def show_word_the_day
-        puts
-        puts "Welcome to Merriam Webster online Dictionary!"
-        puts "The word of the day is:"
-        puts
+        puts "\n Welcome to Merriam Webster online Dictionary!"
+        puts "The word of the day is: \n"
         @word = Dictionary::Word.today
         puts "--- #{@word.word_name}"
         puts "------ #{@word.part_of_speech}"
         puts "------ #{@word.pronounciation}"
-        puts "------ Definition: #{@word.definition}"
-        puts
+        puts "------ Definition: #{@word.definition} \n"
     end
-    
+    # /t --- tab
     def get_user_input
-        puts
-        puts "-- Search for a word or type 'exit'..."
+        puts "\n-- Search for a word or type 'exit'..."
         input = gets.downcase.strip
         puts
         if input == "exit"
