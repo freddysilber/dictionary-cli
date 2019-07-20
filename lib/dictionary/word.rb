@@ -1,3 +1,4 @@
+# SHOULD BE SCRAPER OR WORD CLASS..
 class Dictionary::Word
     # SCRAPER ??
     attr_accessor :word_name, :part_of_speech, :definition, :pronounciation
@@ -22,16 +23,23 @@ class Dictionary::Word
         search
     end
 end
+# ---------  TO-DO LIST ---------
+        # fix error when word is not found
+            # better error hanlding
 
-# fix error when word is not found
-# formatting ??? (cli)
-# break up scraper class and word classes for more object oriented approach
+        # formatting definition ??? (cli)
 
-#  searching the number '0' and numbers ?
-#  color coding gem ? or diplay as table. 'tty Table gem'
-case (var)
-    when var < 0
-        puts "here"
-    break;
-    #  sunsetter. OBS (screen recording)
-    
+        # break up scraper class and word classes for more object oriented approach
+
+        #  searching the number '0' and numbers ?
+
+        #  color coding gem ? or diplay as table. 'tty Table gem'
+
+# case (var)
+#     when var < 0
+#         puts "here"
+#     break;
+
+# /t --- tab
+
+#  sunsetter. OBS (screen recording)

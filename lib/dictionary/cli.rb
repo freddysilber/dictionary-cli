@@ -1,5 +1,4 @@
 # CLI Controller
-# ./bin/dictionary
 class Dictionary::CLI
     def call  
         show_word_the_day
@@ -17,7 +16,7 @@ class Dictionary::CLI
         puts "------ #{@word.pronounciation}"
         puts "------ Definition: #{@word.definition} \n"
     end
-    # /t --- tab
+    
     def get_user_input
         puts "\n-- Search for a word or type 'exit'..."
         input = gets.downcase.strip
@@ -38,22 +37,18 @@ class Dictionary::CLI
 
     def search_for_word
         if @word_to_search != nil
-            puts
-            puts "-- Searching for word: #{@word_to_search.upcase}..."
+            puts "\n -- Searching for word: #{@word_to_search.upcase}..."
             @word_searched = Dictionary::Word.search_for_word_merriam(@word_to_search)
-            puts
-            puts "--- #{@word_searched.word_name}"
+            puts "\n --- #{@word_searched.word_name}"
             puts "------ #{@word_searched.part_of_speech}"
             puts "------ #{@word_searched.pronounciation}"
-            puts "------ Definition: #{@word_searched.definition}"
-            puts
+            puts "------ Definition: #{@word_searched.definition} \n"
         end
     end
 
     def search_again?
         if @exit != true
-            puts
-            puts "----------------------------------------------------"
+            puts "\n ----------------------------------------------------"
             puts "--- Would you like to search for another word? (Y/N)"
             input = gets.strip
             if input == "N" || input == "n" || input == "NO" || input == "no"
