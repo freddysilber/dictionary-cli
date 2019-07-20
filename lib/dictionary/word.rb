@@ -1,20 +1,38 @@
+require_relative 'scraper.rb'
 class Dictionary::Word
-    attr_accessor :word_name, :part_of_speech, :definition, :pronounciation
-    # @@all = []
+    attr_accessor :date, :word_name, :part_of_speech, :definition, :pronounciation
+    @@all = []
+
+    def initialize(date = nil, word_name = nil, part_of_speech = nil, definition = nil, pronounciation = nil)
+        @date = date
+        @word_name = word_name
+        @part_of_speech = part_of_speech
+        @definition = definition
+        @pronounciation = pronounciation
+        @@all << self
+    end
+
     def self.today
         doc = Nokogiri::HTML(open("https://www.merriam-webster.com/word-of-the-day"))
         word_of_the_day = self.new
+        word_of_the_day.date = Date.today
         word_of_the_day.word_name = doc.css('.word-header .word-and-pronunciation h1').text
         word_of_the_day.part_of_speech = doc.css('.main-attr').text
         word_of_the_day.pronounciation = doc.css('.word-syllables').text
         word_of_the_day.definition = doc.css('.wod-definition-container p')[0].text
+        @@all << word_of_the_day
         word_of_the_day
     end
 
-    # def word_of_the_day
-         
-    #     word_of_the_day
-    # end
+    def self.word_of_the_day
+        puts "\n test"
+        puts Date.today
+        # if self.date == Date.today
+        #     puts self
+        # else
+        #     Dictionary::Scraper.get_word_of_day
+        # end
+    end
 
     def self.search_for_word_merriam(word)
         doc = Nokogiri::HTML(open("https://www.merriam-webster.com/dictionary/#{word}"))
@@ -23,7 +41,12 @@ class Dictionary::Word
         search.part_of_speech = doc.css('.col-lg-12 span')[0].text
         search.definition = doc.css('.dtText').text
         search.pronounciation = doc.css('.pr')[0].text
+        @@all << search
         search
+    end
+
+    def self.all 
+        @@all
     end
 end
 # ---------  TO-DO LIST ---------
