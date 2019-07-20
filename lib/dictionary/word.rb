@@ -1,6 +1,4 @@
-# SHOULD BE SCRAPER OR WORD CLASS..
 class Dictionary::Word
-    # SCRAPER ??
     attr_accessor :word_name, :part_of_speech, :definition, :pronounciation
     # @@all = []
     def self.today
@@ -12,6 +10,11 @@ class Dictionary::Word
         word_of_the_day.definition = doc.css('.wod-definition-container p')[0].text
         word_of_the_day
     end
+
+    # def word_of_the_day
+         
+    #     word_of_the_day
+    # end
 
     def self.search_for_word_merriam(word)
         doc = Nokogiri::HTML(open("https://www.merriam-webster.com/dictionary/#{word}"))

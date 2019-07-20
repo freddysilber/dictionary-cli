@@ -15,6 +15,13 @@ class Dictionary::CLI
         puts "------ #{@word.part_of_speech}"
         puts "------ #{@word.pronounciation}"
         puts "------ Definition: #{@word.definition} \n"
+
+        @word = Dictionary::Scraper.get_word_of_day
+        puts @word
+        # puts "--- #{@word.word_name}"
+        # puts "------ #{@word.part_of_speech}"
+        # puts "------ #{@word.pronounciation}"
+        # puts "------ Definition: #{@word.definition} \n"
     end
     
     def get_user_input
