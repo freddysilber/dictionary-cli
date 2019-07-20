@@ -27,6 +27,22 @@ class Dictionary::Word
     def self.word_of_the_day
         puts "\n test"
         puts Date.today
+        puts Dictionary::Scraper.get_word_of_day
+        # @@all.each do |word|
+        #     if word.date == Date.today
+        #         word
+        #     else
+        #         Dictionary::Scraper.get_word_of_day
+        #         word_of_the_day
+        #     end
+        # end
+
+        # if self.all.date == Date.today
+        #     puts "---- #{self.word_name} ---"
+        # else
+        #     Dictionary::Scraper.get_word_of_day
+        #     word_of_the_day
+        # end
         # if self.date == Date.today
         #     puts self
         # else
@@ -47,6 +63,10 @@ class Dictionary::Word
 
     def self.all 
         @@all
+    end
+
+    def self.word_name
+        @word_name
     end
 end
 # ---------  TO-DO LIST ---------

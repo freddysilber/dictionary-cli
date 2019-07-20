@@ -8,21 +8,30 @@ class Dictionary::CLI
     end
 
     def show_word_the_day
-        puts "\n Welcome to Merriam Webster online Dictionary!"
+        puts "\n Welxome to Merriam Webster online Dictionary!"
         puts Date.today
-        puts "The word of the day is: \n"
-        @word = Dictionary::Word.today
+        puts "the word of the day is : \n"
+        @word = Dictionary::Word.word_of_the_day
         puts "--- #{@word.word_name}"
         puts "------ #{@word.part_of_speech}"
         puts "------ #{@word.pronounciation}"
-        puts "------ Definition: #{@word.definition} \n"
+        puts "------ #{@word.definition} \n"
+        # puts "\n Welcome to Merriam Webster online Dictionary!"
+        # puts Date.today
+        # puts "The word of the day is: \n"
+        # @word = Dictionary::Word.today
+        # puts "--- #{@word.word_name}"
+        # puts "------ #{@word.part_of_speech}"
+        # puts "------ #{@word.pronounciation}"
+        # puts "------ Definition: #{@word.definition} \n"
 
 
-        puts Dictionary::Word.all
-        @word_of_the_day = Dictionary::Word.word_of_the_day
-        puts @word_of_the_day
-        @word = Dictionary::Scraper.get_word_of_day
-        puts @word
+        # puts Dictionary::Word.all
+        # @word_of_the_day = Dictionary::Word.word_of_the_day
+        # puts @word_of_the_day
+        # @word = Dictionary::Scraper.get_word_of_day
+        # puts @word
+
         # puts "--- #{@word.word_name}"
         # puts "------ #{@word.part_of_speech}"
         # puts "------ #{@word.pronounciation}"

@@ -27,7 +27,10 @@ class Dictionary::Scraper
     end
 
     def self.create_word(hash)
-        word = Dictionary::Word.new(hash)
+        word = Dictionary::Word.new(hash[:date], hash[:word_name], 
+                                    hash[:part_of_speech], hash[:definition],
+                                    hash[:pronounciation])
+        
         puts word
     end
 end
