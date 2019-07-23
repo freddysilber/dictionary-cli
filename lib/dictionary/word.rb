@@ -47,6 +47,16 @@ class Dictionary::Word
         @searched_words
     end
 
+    def self.todays_word
+        @@words_of_the_day.each do |w|
+            if w.date === Date.today
+                w
+            else
+                puts "word of the day not yet saved"
+            end
+        end
+    end
+
 end
 
 

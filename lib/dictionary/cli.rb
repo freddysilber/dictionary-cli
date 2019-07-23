@@ -3,7 +3,11 @@ class Dictionary::CLI
 
 
     #####################
-    def call  
+    def call
+        @word_of_the_day = nil
+        @word_to_search = nil
+        @word_searched = nil
+        @exit = nil
         show_word_the_day
         get_user_input
         search_for_word
@@ -15,6 +19,24 @@ class Dictionary::CLI
         puts "\nWelxome to Merriam Webster online Dictionary!"
         puts Date.today
         puts "the word of the day is : \n"
+
+        # @word_of_the_day = Dictionary::Word.todays_word
+        # if @word_of_the_day == nil
+        #     puts "no word of the day found... creating one now"
+        #     @word_of_the_day = Dictionary::Scraper.get_word_of_day
+        #     Dictionary::Word.new_word_of_the_day(@word_of_the_day)
+        #     puts "\n--- #{@word_of_the_day[:word_name]}"
+        #     puts "------ #{@word_of_the_day[:part_of_speech]}"
+        #     puts "------ #{@word_of_the_day[:pronounciation]}"
+        #     puts "------ #{@word_of_the_day[:definition]}"
+        # else
+        #     puts Dictionary::Word.all
+        #     puts "\n--- #{@word_of_the_day[:word_name]}"
+        #     puts "------ #{@word_of_the_day[:part_of_speech]}"
+        #     puts "------ #{@word_of_the_day[:pronounciation]}"
+        #     puts "------ #{@word_of_the_day[:definition]}"
+        # end
+
         if @word_of_the_day == nil 
             @word_of_the_day = Dictionary::Scraper.get_word_of_day
             Dictionary::Word.new_word_of_the_day(@word_of_the_day)
@@ -30,6 +52,7 @@ class Dictionary::CLI
             puts "------ #{@word_of_the_day[:pronounciation]}"
             puts "------ #{@word_of_the_day[:definition]}"
         end
+
     end
     
     def get_user_input

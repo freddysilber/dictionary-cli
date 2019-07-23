@@ -2,6 +2,7 @@ require_relative 'word.rb'
 
 class Dictionary::Scraper
 
+    @@exception_count = 0
     def self.get_word_of_day
         word_of_the_day = {}
         doc = Nokogiri::HTML(open("https://www.merriam-webster.com/word-of-the-day"))
@@ -30,12 +31,10 @@ class Dictionary::Scraper
             word_searched[:pronounciation] = pronounciation
             word_searched[:definition] = definition
         rescue StandardError => e
-            # retry
-            puts "\nSorry, 1 we couldnt find your word. Please try again. :)"
-        else
-            puts "\nSorry, 2 we couldnt find your word. Please try again. :)"
+            puts "\nSorry, we couldnt find your word. Please try again. :)"
+            @@exception_count += 1
         end
         word_searched
     end
-
+    
 end
