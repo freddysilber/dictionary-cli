@@ -53,16 +53,13 @@ class Dictionary::CLI
         if @word_to_search != nil
             puts "\n -- Searching for word: #{@word_to_search.upcase}..."
             @word_searched = Dictionary::Scraper.search_for_word(@word_to_search)
-            if @word_searched != nil || @word_searched != ""
-                puts @word_searched
+            if @word_searched[:word_name] != nil && @word_searched[:part_of_speech] != nil
                 Dictionary::Word.new_word_from_search(@word_searched)
-            else
-                puts "Sorry, We couldnt find your word. Please try again. :)"
+                puts "\n--- #{@word_searched[:word_name]}"
+                puts "------ #{@word_searched[:part_of_speech]}"
+                puts "------ #{@word_searched[:pronounciation]}"
+                puts "------ #{@word_searched[:definition]}"
             end
-            puts "\n--- #{@word_searched[:word_name]}"
-            puts "------ #{@word_searched[:part_of_speech]}"
-            puts "------ #{@word_searched[:pronounciation]}"
-            puts "------ #{@word_searched[:definition]}"
         end
     end
 
