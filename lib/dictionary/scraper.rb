@@ -1,8 +1,7 @@
 require_relative 'word.rb'
-
 class Dictionary::Scraper
-
     @@exception_count = 0
+
     def self.get_word_of_day
         word_of_the_day = {}
         doc = Nokogiri::HTML(open("https://www.merriam-webster.com/word-of-the-day"))

@@ -1,6 +1,6 @@
 # CLI Controller
+#./bin/dictionary
 class Dictionary::CLI
-
     #####################
     def call
         @word_of_the_day = nil
@@ -13,7 +13,6 @@ class Dictionary::CLI
         search_again?
     end
     #####################
-
     def show_word_the_day
         puts "\nWelxome to Merriam Webster online Dictionary!"
         puts Date.today
@@ -94,5 +93,4 @@ class Dictionary::CLI
     def goodbye_message
         puts "See you later!"
     end
-
 end

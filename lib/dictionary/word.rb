@@ -1,10 +1,6 @@
 require_relative 'scraper.rb'
-
-
 class Dictionary::Word
-
     attr_accessor :date, :word_name, :part_of_speech, :definition, :pronounciation
-   
     @@all = []
     @@words_of_the_day = []
     @@searched_words = []
@@ -55,19 +51,9 @@ class Dictionary::Word
             end
         end
     end
-
 end
-
-
 # ---------  TO-DO LIST ---------
 
     # formatting definition ??? (cli)
 
     #  color coding gem ? or diplay as table. 'tty Table gem'
-
-
-# ---- NOTES
-
-# /t --- tab --- /n or \n ? new line ---
-
-#  sunsetter. OBS (screen recording)
