@@ -33,7 +33,6 @@ class Dictionary::Scraper
             # retry
             puts "\nSorry, 1 we couldnt find your word. Please try again. :)"
         else
-            puts wordname
             puts "\nSorry, 2 we couldnt find your word. Please try again. :)"
         end
         word_searched
