@@ -1,7 +1,6 @@
 # CLI Controller
 class Dictionary::CLI
 
-
     #####################
     def call
         @word_of_the_day = nil
@@ -18,35 +17,17 @@ class Dictionary::CLI
     def show_word_the_day
         puts "\nWelxome to Merriam Webster online Dictionary!"
         puts Date.today
-        puts "the word of the day is : \n"
-
+        puts "\nThe word of the day is:"
         # @word_of_the_day = Dictionary::Word.todays_word
-        # if @word_of_the_day == nil
-        #     puts "no word of the day found... creating one now"
-        #     @word_of_the_day = Dictionary::Scraper.get_word_of_day
-        #     Dictionary::Word.new_word_of_the_day(@word_of_the_day)
-        #     puts "\n--- #{@word_of_the_day[:word_name]}"
-        #     puts "------ #{@word_of_the_day[:part_of_speech]}"
-        #     puts "------ #{@word_of_the_day[:pronounciation]}"
-        #     puts "------ #{@word_of_the_day[:definition]}"
-        # else
-        #     puts Dictionary::Word.all
-        #     puts "\n--- #{@word_of_the_day[:word_name]}"
-        #     puts "------ #{@word_of_the_day[:part_of_speech]}"
-        #     puts "------ #{@word_of_the_day[:pronounciation]}"
-        #     puts "------ #{@word_of_the_day[:definition]}"
-        # end
-
-        if @word_of_the_day == nil 
+        # puts @word_of_the_day
+        if @word_of_the_day == nil
             @word_of_the_day = Dictionary::Scraper.get_word_of_day
             Dictionary::Word.new_word_of_the_day(@word_of_the_day)
-            puts Dictionary::Word.all
             puts "\n--- #{@word_of_the_day[:word_name]}"
             puts "------ #{@word_of_the_day[:part_of_speech]}"
             puts "------ #{@word_of_the_day[:pronounciation]}"
             puts "------ #{@word_of_the_day[:definition]}"
         else
-            puts Dictionary::Word.all
             puts "\n--- #{@word_of_the_day[:word_name]}"
             puts "------ #{@word_of_the_day[:part_of_speech]}"
             puts "------ #{@word_of_the_day[:pronounciation]}"
@@ -57,6 +38,7 @@ class Dictionary::CLI
     
     def get_user_input
         puts "\n-- Search for a word or type 'exit'..."
+        puts
         input = gets.downcase.strip
         puts
         if input == "exit"
@@ -78,6 +60,7 @@ class Dictionary::CLI
             @word_searched = Dictionary::Scraper.search_for_word(@word_to_search)
             if @word_searched[:word_name] != nil && @word_searched[:part_of_speech] != nil
                 Dictionary::Word.new_word_from_search(@word_searched)
+                # puts @word_searched[:definition].split(":")
                 puts "\n--- #{@word_searched[:word_name]}"
                 puts "------ #{@word_searched[:part_of_speech]}"
                 puts "------ #{@word_searched[:pronounciation]}"
@@ -88,7 +71,7 @@ class Dictionary::CLI
 
     def search_again?
         if @exit != true
-            puts "\n ----------------------------------------------------"
+            puts "\n----------------------------------------------------"
             puts "--- Would you like to search for another word? (Y/N)"
             input = gets.strip
             if input == "N" || input == "n" || input == "NO" || input == "no"
