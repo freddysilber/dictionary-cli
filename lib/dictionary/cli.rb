@@ -18,9 +18,14 @@ class Dictionary::CLI
         puts "\nWelxome to Merriam Webster online Dictionary!"
         puts Date.today
         puts "\nThe word of the day is:"
-        # @word_of_the_day = Dictionary::Word.todays_word
-        # puts @word_of_the_day
-        if @word_of_the_day == nil
+
+        wod = Dictionary::Scraper.get_word_of_day
+        w = Dictionary::Word.new_word_of_the_day(wod)
+        @word = Dictionary::Word.todays_word
+        puts "this is the word #{@word}"
+        puts @word
+
+        if @word_of_the_day == nil || @word == nil
             @word_of_the_day = Dictionary::Scraper.get_word_of_day
             Dictionary::Word.new_word_of_the_day(@word_of_the_day)
             puts "\n--- #{@word_of_the_day[:word_name]}"

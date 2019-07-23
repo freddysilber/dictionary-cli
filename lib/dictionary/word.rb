@@ -36,7 +36,7 @@ class Dictionary::Word
     end
 
     def self.all
-        puts @@all
+        @@all
     end
 
     def self.words_of_the_day
@@ -48,12 +48,10 @@ class Dictionary::Word
     end
 
     def self.todays_word
+        puts "hey"
         @@words_of_the_day.each do |w|
-            if w.date === Date.today
-                puts w
+            if w.date == Date.today
                 w
-            else
-                puts "word of the day not yet saved"
             end
         end
     end
