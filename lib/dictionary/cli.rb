@@ -1,6 +1,7 @@
 # CLI Controller
 class Dictionary::CLI
 
+
     #####################
     def call  
         show_word_the_day
@@ -9,7 +10,7 @@ class Dictionary::CLI
         search_again?
     end
     #####################
-    
+
     def show_word_the_day
         puts "\nWelxome to Merriam Webster online Dictionary!"
         puts Date.today
@@ -52,7 +53,12 @@ class Dictionary::CLI
         if @word_to_search != nil
             puts "\n -- Searching for word: #{@word_to_search.upcase}..."
             @word_searched = Dictionary::Scraper.search_for_word(@word_to_search)
-            Dictionary::Word.new_word_from_search(@word_searched)
+            if @word_searched != nil || @word_searched != ""
+                puts @word_searched
+                Dictionary::Word.new_word_from_search(@word_searched)
+            else
+                puts "Sorry, We couldnt find your word. Please try again. :)"
+            end
             puts "\n--- #{@word_searched[:word_name]}"
             puts "------ #{@word_searched[:part_of_speech]}"
             puts "------ #{@word_searched[:pronounciation]}"

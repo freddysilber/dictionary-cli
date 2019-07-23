@@ -2,6 +2,7 @@ require_relative 'scraper.rb'
 
 
 class Dictionary::Word
+
     attr_accessor :date, :word_name, :part_of_speech, :definition, :pronounciation
    
     @@all = []
@@ -17,38 +18,9 @@ class Dictionary::Word
         word.pronounciation = hash[:pronounciation]
         @@all << word
         @@words_of_the_day << word
-        # if word is no already found create it
-        # @@all.each do |w|
-        #     if w.word_name != hash[:word_name]
-        #         word = self.new
-        #         word.word_name = hash[:word_name]
-        #         word.date = hash[:date]
-        #         word.part_of_speech = hash[:part_of_speech]
-        #         word.definition = hash[:definition]
-        #         word.pronounciation = hash[:pronounciation]
-        #         @@all << word
-        #         @@words_of_the_day << word
-        #     end
-        # end
-        # word = self.new
-        # word.word_name = hash[:word_name]
-        # word.date = hash[:date]
-        # word.part_of_speech = hash[:part_of_speech]
-        # word.definition = hash[:definition]
-        # word.pronounciation = hash[:pronounciation]
-        # @@all << word
-        # @@words_of_the_day << word
     end
 
     def self.new_word_from_search(hash)
-        # word = self.new
-        # word.word_name = hash[:word_name]
-        # word.date = hash[:date]
-        # word.part_of_speech = hash[:part_of_speech]
-        # word.definition = hash[:definition]
-        # word.pronounciation = hash[:pronounciation]
-        # @@all << word
-        # @@searched_words << word
         @@all.each do |w|
             if w.word_name != hash[:word_name]
                 word = self.new
@@ -74,6 +46,7 @@ class Dictionary::Word
     def self.searched_words
         @searched_words
     end
+
 end
 
 
@@ -114,22 +87,17 @@ end
 # end
 
 # ---------  TO-DO LIST ---------
-        # fix error when word is not found
-            # better error hanlding
+    # fix error when word is not found
+        # better error hanlding
 
-        # formatting definition ??? (cli)
+    # formatting definition ??? (cli)
 
-        # break up scraper class and word classes for more object oriented approach
+    # break up scraper class and word classes for more object oriented approach
 
-        #  searching the number '0' and numbers ?
+    #  searching the number '0' and numbers ?
 
-        #  color coding gem ? or diplay as table. 'tty Table gem'
+    #  color coding gem ? or diplay as table. 'tty Table gem'
 
-# case (var)
-#     when var < 0
-#         puts "here"
-#     break;
-
-# /t --- tab
+# /t --- tab --- /n or \n ? new line ---
 
 #  sunsetter. OBS (screen recording)
