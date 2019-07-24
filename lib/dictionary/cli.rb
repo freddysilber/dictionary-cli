@@ -1,9 +1,7 @@
 # CLI Controller
-#./bin/dictionary
 class Dictionary::CLI
-    #####################
     def call
-        welcome_message #
+        welcome_message
         get_todays_word
         show_word_of_the_day
         get_user_input
@@ -11,15 +9,13 @@ class Dictionary::CLI
         show_searched_word
         search_again?
     end
-
-    def welcome_message #
+    def welcome_message
         puts
         puts "\nWelxome to Merriam Webster online Dictionary!"
         puts "Date: #{Date.today}"
         puts
         puts "\tThe word of the day is:"
     end
-    
     def get_todays_word
         w = Dictionary::Word.todays_word[0]
         @word_of_the_day = w
@@ -29,14 +25,12 @@ class Dictionary::CLI
             @word_of_the_day = w
         end
     end
-
     def show_word_of_the_day
         puts "\n--- Word: #{@word_of_the_day.word_name.upcase}"
         puts "------ Part of Speech: #{@word_of_the_day.part_of_speech}"
         puts "------ Pronounciation: #{@word_of_the_day.pronounciation}"
         puts "------ Definition: #{@word_of_the_day.definition}"
     end
-    
     def get_user_input
         puts
         puts "\n-- Search for a word or type 'exit' . . ."
@@ -45,6 +39,7 @@ class Dictionary::CLI
         puts
         if input == "exit"
             @exit = true
+            return "See you later!"
         else 
             puts "-- The word you searched is #{input.upcase}. Is that correct? (Y/N)"
             confirmation = gets.downcase.strip
@@ -55,32 +50,25 @@ class Dictionary::CLI
             end
         end
     end
-
     def find_word
-        search = @word_to_search.downcase
-        @searched = Dictionary::Word.find_a_word(search)
-        puts @searched
-        if @searched == nil || @searched == []
-            puts "Scraping for word"
-            word = Dictionary::Scraper.search_for_word(search)
-            w = Dictionary::Word.new_word_from_search(word)
-            @searched = w
-            puts @searched
-            puts @searched.word_name
-        else
-            puts "Word was found!"
-            puts @searched
-            puts @searched.word_name
+        if @exit != true
+            search = @word_to_search.downcase
+            @searched = Dictionary::Word.find_a_word(search)
+            if @searched == nil || @searched == []
+                word = Dictionary::Scraper.search_for_word(search)
+                w = Dictionary::Word.new_word_from_search(word)
+                @searched = w
+            end
         end
     end
-
     def show_searched_word
-        puts "\n--- Word: #{@searched.word_name.upcase}"
-        puts "------ Part of Speech: #{@searched.part_of_speech}"
-        puts "------ Pronounciation: #{@searched.pronounciation}"
-        puts "------ Definition: #{@searched.definition}"
+        if @exit != true
+            puts "\n--- Word: #{@searched.word_name.upcase}"
+            puts "------ Part of Speech: #{@searched.part_of_speech}"
+            puts "------ Pronounciation: #{@searched.pronounciation}"
+            puts "------ Definition: #{@searched.definition}"
+        end
     end
-
     def search_again?
         if @exit != true
             puts
@@ -98,7 +86,6 @@ class Dictionary::CLI
              goodbye_message
         end
     end
-
     def goodbye_message
         puts "See you later!"
     end
