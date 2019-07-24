@@ -59,15 +59,16 @@ class Dictionary::CLI
     def find_word
         search = @word_to_search.downcase
         @searched = Dictionary::Word.find_a_word(search)
+        puts @searched
         if @searched == nil || @searched == []
-            puts "....."
+            puts "Scraping for word"
             word = Dictionary::Scraper.search_for_word(search)
             w = Dictionary::Word.new_word_from_search(word)
             @searched = w
             puts @searched
-            puts "#{@searched.word_name}"
+            puts @searched.word_name
         else
-            puts "-----"
+            puts "Word was found!"
             puts @searched
             puts @searched.word_name
         end

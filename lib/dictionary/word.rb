@@ -62,7 +62,7 @@ class Dictionary::Word
     end
 
     def self.searched_words
-        @searched_words
+        @@searched_words
     end
 
     def self.todays_word
@@ -80,6 +80,7 @@ class Dictionary::Word
             if w.word_name == search || w.word_name === search
                 word = w
                 return word
+                # return w
             else
                 return nil
             end
