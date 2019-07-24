@@ -35,6 +35,10 @@ class Dictionary::Word
         @@all
     end
 
+    def all
+        @@all
+    end
+
     def self.words_of_the_day
         @words_of_the_day
     end
@@ -44,16 +48,40 @@ class Dictionary::Word
     end
 
     def self.todays_word
-        puts "hey"
         @@words_of_the_day.each do |w|
+            # puts w.word_name
+            # puts w.date
             if w.date == Date.today
-                w
+                puts "todays_word ---- "
+                puts w.word_name
+                return w
+            else
+                puts "couldnt find word"
+                return nil
             end
         end
+        # word = new_word_of_the_day({:word_name => "WORD OF THE DAY NAME",
+        #                            :date => Date.today,
+        #                            :part_of_speech => "NOUN",
+        #                            :definition => "DEFINITION OF WORD OF THE DAY",
+        #                            :pronounciation => "PRONOUNCIATION"})
+        # word
+
+        # puts "hey"
+        # @@words_of_the_day.each do |w|
+        #     puts w.date
+        #     puts w.word_name
+        #     puts w.date == Date.today
+        #     if w.date != Date.today
+        #         w
+        #     # else
+        #     #     word = Dictionary::Scraper.get_word_of_day
+        #     #     self.new_word_of_the_day(word)
+        #     #     word
+        #     end
+        # end
     end
 end
 # ---------  TO-DO LIST ---------
-
-    # formatting definition ??? (cli)
-
-    #  color coding gem ? or diplay as table. 'tty Table gem'
+# formatting definition ??? (cli)
+#  color coding gem ? or diplay as table. 'tty Table gem'
