@@ -52,6 +52,3 @@ end
 # ---------  TO-DO LIST ---------
 # formatting definition ??? (cli)
 #  color coding gem ? or diplay as table. 'tty Table gem'
-
-# >> [1,2,3,4,5,6,7].detect { |x| x.between?(3,4) }
-# => 3
