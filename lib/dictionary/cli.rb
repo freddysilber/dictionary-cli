@@ -17,7 +17,7 @@ class Dictionary::CLI
         puts "\tThe word of the day is:"
     end
     def get_todays_word
-        w = Dictionary::Word.todays_word[0]
+        w = Dictionary::Word.todays_word
         @word_of_the_day = w
         if @word_of_the_day == nil || @word_of_the_day == []
             word = Dictionary::Scraper.get_word_of_day

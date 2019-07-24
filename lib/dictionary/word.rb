@@ -43,11 +43,7 @@ class Dictionary::Word
         @@searched_words
     end
     def self.todays_word
-        @@words_of_the_day.each do |w|
-            if w.date == Date.today
-                w
-            end
-        end
+        @@words_of_the_day.detect {|w| w.date == Date.today}
     end
     def self.find_a_word(search)
         @@all.detect {|w| w.word_name == search}
