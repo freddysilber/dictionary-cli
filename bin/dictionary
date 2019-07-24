@@ -1,5 +1,4 @@
 #!/usr/bin/ruby
-# this is the cli
 require './lib/dictionary'
 # require "bundler/setup"
 # require "dictionary"
