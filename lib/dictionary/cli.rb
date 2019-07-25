@@ -11,6 +11,7 @@ class Dictionary::CLI
     end
     def welcome_message
         puts
+        puts "-----------------------------------------------"
         puts "\nWelxome to Merriam Webster online Dictionary!"
         puts "Date: #{Date.today}"
         puts
@@ -26,13 +27,16 @@ class Dictionary::CLI
         end
     end
     def show_word_of_the_day
-        puts "\n--- Word: #{@word_of_the_day.word_name.upcase}"
-        puts "------ Part of Speech: #{@word_of_the_day.part_of_speech}"
-        puts "------ Pronounciation: #{@word_of_the_day.pronounciation}"
-        puts "------ Definition: #{@word_of_the_day.definition}"
+        # form_def = format_definition(@word_of_the_day.definition)
+        puts "\n-- Word: #{@word_of_the_day.word_name.capitalize}"
+        puts "---- Part of Speech: #{@word_of_the_day.part_of_speech.capitalize}"
+        puts "---- Pronounciation: '#{@word_of_the_day.pronounciation}'"
+        puts "---- Definition: #{@word_of_the_day.definition}"
+        # puts "------ Definition:"
+        # puts 
+        # puts form_def
     end
     def get_user_input
-        puts
         puts "\n-- Search for a word or type 'exit' . . ."
         puts
         input = gets.downcase.strip
@@ -42,6 +46,7 @@ class Dictionary::CLI
             return "See you later!"
         else 
             puts "-- The word you searched is #{input.upcase}. Is that correct? (Y/N)"
+            puts
             confirmation = gets.downcase.strip
             if confirmation == "N" || confirmation == "n" || confirmation == "no" || confirmation == "NO"
                 get_user_input
@@ -63,17 +68,37 @@ class Dictionary::CLI
     end
     def show_searched_word
         if @exit != true
-            puts "\n--- Word: #{@searched.word_name.upcase}"
-            puts "------ Part of Speech: #{@searched.part_of_speech}"
-            puts "------ Pronounciation: #{@searched.pronounciation}"
-            puts "------ Definition: #{@searched.definition}"
+            counter = 1
+            formatted = []
+            sections = @searched.definition.split(":")
+            sections.delete_if(&:empty?)
+            puts "\n-------------------------------------------------------------------"
+            puts "\n-- Word: #{@searched.word_name.capitalize}"
+            puts "---- Part of Speech: #{@searched.part_of_speech.capitalize}"
+            puts "---- Pronounciation: '#{@searched.pronounciation}'"
+            puts "---- Definition:"
+            puts
+            for i in sections do
+                sec = i.split
+                first_word = sec[0].capitalize
+                sec.shift
+                sec.unshift(first_word)
+                s = sec.join(" ")
+                formatted << s
+            end
+            formatted.each {|f|
+                puts "\t" + "\t#{counter}. #{f}"
+                puts
+                counter += 1
+            }
         end
     end
     def search_again?
         if @exit != true
             puts
-            puts "\n----------------------------------------------------"
-            puts "--- Would you like to search for another word? (Y/N)"
+            puts "----------------------------------------------------"
+            puts "\n--- Would you like to search for another word? (Y/N)"
+            puts
             input = gets.strip
             if input == "N" || input == "n" || input == "NO" || input == "no"
                 puts
