@@ -27,14 +27,10 @@ class Dictionary::CLI
         end
     end
     def show_word_of_the_day
-        # form_def = format_definition(@word_of_the_day.definition)
         puts "\n-- Word: #{@word_of_the_day.word_name.capitalize}"
         puts "---- Part of Speech: #{@word_of_the_day.part_of_speech.capitalize}"
         puts "---- Pronounciation: '#{@word_of_the_day.pronounciation}'"
         puts "---- Definition: #{@word_of_the_day.definition}"
-        # puts "------ Definition:"
-        # puts 
-        # puts form_def
     end
     def get_user_input
         puts "\n-- Search for a word or type 'exit' . . ."
