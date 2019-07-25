@@ -9,15 +9,15 @@ A Merriam-Webster Dictionary Gem.
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
-1. Clone this repo to your desktop
+1. Fork and Clone this repo to your desktop
 2. 'cd' to the folder
 3. Run './bin/dictionary'
 4. Learn a word
 
 ```ruby
-gem 'dictionary'
+gem 'dictionary' 
+or in a new terminal window...
+$ git clone https://github.com/YOUR-USERNAME/DICTIONARY-CLI-FOLDER
 ```
 
 And then execute:
