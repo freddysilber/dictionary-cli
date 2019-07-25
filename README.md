@@ -1,6 +1,9 @@
 # Dictionary
 
-Ruby CLI Dictionary Gem 
+- Dictionary Gem
+-- Ruby CLI Data Gem Portfolio Project
+-- Freddy Silber 
+-- Summer 19'
 
 ## Installation
 
