@@ -69,7 +69,7 @@ class Dictionary::CLI
             formatted = []
             sections = @searched.definition.split(":")
             sections.delete_if(&:empty?)
-            puts "\n-------------------------------------------------------------------"
+            puts "\n-----------------------------------------------"
             puts "\n-- Word: #{@searched.word_name.capitalize}"
             puts "---- Part of Speech: #{@searched.part_of_speech.capitalize}"
             puts "---- Pronounciation: '#{@searched.pronounciation}'"
@@ -92,7 +92,7 @@ class Dictionary::CLI
     end
     def search_again?
         if @exit != true
-            puts "----------------------------------------------------"
+            puts "-----------------------------------------------"
             puts "\n--- Would you like to search for another word? (Y/N)"
             puts
             input = gets.strip
@@ -108,6 +108,9 @@ class Dictionary::CLI
         end
     end
     def goodbye_message
+        puts "-----------------------------------------------"
         puts "See you later!"
+        puts "-----------------------------------------------"
+        puts
     end 
 end
