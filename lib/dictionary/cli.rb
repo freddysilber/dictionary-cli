@@ -11,8 +11,7 @@ class Dictionary::CLI
         search_again?
     end
     def welcome_message
-        puts
-        puts "----------------------------------------------------------------".cyan
+        puts "\n----------------------------------------------------------------".cyan
         puts
         puts "\tWelxome to Merriam Webster online Dictionary!".colorize(:light_magenta)
         puts
