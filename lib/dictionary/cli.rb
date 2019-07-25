@@ -31,6 +31,7 @@ class Dictionary::CLI
         puts "---- Part of Speech: #{@word_of_the_day.part_of_speech.capitalize}"
         puts "---- Pronounciation: '#{@word_of_the_day.pronounciation}'"
         puts "---- Definition: #{@word_of_the_day.definition}"
+        puts "\n-----------------------------------------------"
     end
     def get_user_input
         puts "\n-- Search for a word or type 'exit' . . ."
@@ -91,7 +92,6 @@ class Dictionary::CLI
     end
     def search_again?
         if @exit != true
-            puts
             puts "----------------------------------------------------"
             puts "\n--- Would you like to search for another word? (Y/N)"
             puts
