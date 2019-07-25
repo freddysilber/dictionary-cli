@@ -3,9 +3,9 @@ A Merriam-Webster Dictionary Gem.
 ## CLI Data Gem Portfolio Project
 
 - Dictionary Gem
--- Ruby CLI Data Gem Portfolio Project
--- Freddy Silber 
--- Summer 19'
+- Ruby CLI Data Gem Portfolio Project
+- Freddy Silber 
+- Summer 19'
 
 ## Installation
 
