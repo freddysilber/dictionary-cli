@@ -1,4 +1,5 @@
 # CLI Controller
+require 'colorize'
 class Dictionary::CLI
     def call
         welcome_message
@@ -11,11 +12,13 @@ class Dictionary::CLI
     end
     def welcome_message
         puts
-        puts "-----------------------------------------------"
-        puts "\nWelxome to Merriam Webster online Dictionary!"
-        puts "Date: #{Date.today}"
+        puts "----------------------------------------------------------------".cyan
         puts
-        puts "\tThe word of the day is:"
+        puts "\tWelxome to Merriam Webster online Dictionary!".colorize(:light_magenta)
+        puts
+        puts "\tDate: #{Date.today}".colorize(:light_yellow)
+        puts
+        puts "\tThe word of the day is:".colorize(:light_yellow)
     end
     def get_todays_word
         w = Dictionary::Word.todays_word
@@ -27,14 +30,15 @@ class Dictionary::CLI
         end
     end
     def show_word_of_the_day
-        puts "\n-- Word: #{@word_of_the_day.word_name.capitalize}"
-        puts "---- Part of Speech: #{@word_of_the_day.part_of_speech.capitalize}"
-        puts "---- Pronounciation: '#{@word_of_the_day.pronounciation}'"
-        puts "---- Definition: #{@word_of_the_day.definition}"
-        puts "\n-----------------------------------------------"
+        puts "\n-- Word: #{@word_of_the_day.word_name.capitalize.colorize(:light_green)}"
+        puts "---- Part of Speech: #{@word_of_the_day.part_of_speech.capitalize.colorize(:light_green)}"
+        puts "---- Pronounciation: '#{@word_of_the_day.pronounciation.colorize(:light_green)}'"
+        puts "---- Definition: #{@word_of_the_day.definition.colorize(:light_green)}"
+        puts "\n----------------------------------------------------------------".cyan
     end
     def get_user_input
-        puts "\n-- Search for a word or type 'exit' . . ."
+        exit_input = "exit".colorize(:light_red)
+        puts "\n-- Search for a word or type '#{exit_input}' . . ."
         puts
         input = gets.downcase.strip
         puts
@@ -42,7 +46,9 @@ class Dictionary::CLI
             @exit = true
             return "See you later!"
         else 
-            puts "-- The word you searched is #{input.upcase}. Is that correct? (Y/N)"
+            yes = "Y".colorize(:light_green)
+            no = "N".colorize(:red)
+            puts "-- The word you searched is #{input.upcase.colorize(:light_yellow)}. Is that correct? (#{yes}/#{no})"
             puts
             confirmation = gets.downcase.strip
             if confirmation == "N" || confirmation == "n" || confirmation == "no" || confirmation == "NO"
@@ -69,10 +75,10 @@ class Dictionary::CLI
             formatted = []
             sections = @searched.definition.split(":")
             sections.delete_if(&:empty?)
-            puts "\n-----------------------------------------------"
-            puts "\n-- Word: #{@searched.word_name.capitalize}"
-            puts "---- Part of Speech: #{@searched.part_of_speech.capitalize}"
-            puts "---- Pronounciation: '#{@searched.pronounciation}'"
+            puts "\n----------------------------------------------------------------".cyan
+            puts "\n-- Word: #{@searched.word_name.capitalize.colorize(:light_green)}"
+            puts "---- Part of Speech: #{@searched.part_of_speech.capitalize.colorize(:light_green)}"
+            puts "---- Pronounciation: '#{@searched.pronounciation.colorize(:light_green)}'"
             puts "---- Definition:"
             puts
             for i in sections do
@@ -84,7 +90,7 @@ class Dictionary::CLI
                 formatted << s
             end
             formatted.each {|f|
-                puts "\t" + "\t#{counter}. #{f}"
+                puts "\t" + "\t#{counter}. #{f}".colorize(:light_green)
                 puts
                 counter += 1
             }
@@ -92,8 +98,10 @@ class Dictionary::CLI
     end
     def search_again?
         if @exit != true
-            puts "-----------------------------------------------"
-            puts "\n--- Would you like to search for another word? (Y/N)"
+            yes = "Y".colorize(:light_green)
+            no = "N".colorize(:red)
+            puts "----------------------------------------------------------------".cyan
+            puts "\n--- Would you like to search for another word? (#{yes}/#{no})"
             puts
             input = gets.strip
             if input == "N" || input == "n" || input == "NO" || input == "no"
@@ -108,9 +116,9 @@ class Dictionary::CLI
         end
     end
     def goodbye_message
-        puts "-----------------------------------------------"
-        puts "See you later!"
-        puts "-----------------------------------------------"
+        puts "----------------------------------------------------------------".cyan
+        puts "See you later!".colorize(:light_yellow)
+        puts "----------------------------------------------------------------".cyan
         puts
     end 
 end
