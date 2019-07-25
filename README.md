@@ -1,4 +1,5 @@
 # Dictionary CLI
+A Merriam-Webster Dictionary Gem.
 ## CLI Data Gem Portfolio Project
 
 - Dictionary Gem
