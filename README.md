@@ -1,4 +1,5 @@
-# Dictionary
+# Dictionary CLI
+## CLI Data Gem Portfolio Project
 
 - Dictionary Gem
 -- Ruby CLI Data Gem Portfolio Project
