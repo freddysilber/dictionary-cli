@@ -9,6 +9,11 @@
 
 Add this line to your application's Gemfile:
 
+1. Clone this repo to your desktop
+2. 'cd' to the folder
+3. Run './bin/dictionary'
+4. Learn a word
+
 ```ruby
 gem 'dictionary'
 ```
