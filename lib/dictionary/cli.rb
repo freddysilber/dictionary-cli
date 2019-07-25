@@ -89,4 +89,5 @@ class Dictionary::CLI
     def goodbye_message
         puts "See you later!"
     end
+    
 end
