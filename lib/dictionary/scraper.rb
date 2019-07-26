@@ -29,7 +29,8 @@ class Dictionary::Scraper
             word_searched[:pronounciation] = pronounciation
             word_searched[:definition] = definition
         rescue StandardError => e
-            puts "\nSorry, we couldnt find your word. Please try again. :)"
+            word_searched = nil
+            # puts e
             @@exception_count += 1
         end
         word_searched

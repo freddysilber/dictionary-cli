@@ -61,19 +61,19 @@ class Dictionary::CLI
         if @exit != true
             search = @word_to_search.downcase
             @searched = Dictionary::Word.find_a_word(search)
-            if @searched == nil || @searched == []
+            if @searched != nil || @searched != []
                 word = Dictionary::Scraper.search_for_word(search)
-                if word != {} || word != nil
+                if word != nil
                     w = Dictionary::Word.new_word_from_search(word)
                     @searched = w
-                end
-            else
-                puts "Sorry we couldn't find the word you searched. Please try again or change spelling."
+                else
+                    puts "Sorry we couldn't find the word you searched. Please try again or change spelling.".red
+                end                
             end
         end
     end
     def show_searched_word
-        if @exit != true
+        if @exit != true && @searched != nil
             counter = 1
             formatted = []
             sections = @searched.definition.split(":")
