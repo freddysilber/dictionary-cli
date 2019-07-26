@@ -7,6 +7,10 @@ A Merriam-Webster Dictionary Gem.
 - Freddy Silber 
 - Summer 19'
 
+## Walkthrough
+
+-- YouTube: https://www.youtube.com/watch?v=h1DsQGNnf6k&feature=youtu.be
+
 ## Installation
 
 1. Fork and Clone this repo to your desktop
