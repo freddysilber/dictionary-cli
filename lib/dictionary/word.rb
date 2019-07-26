@@ -49,6 +49,3 @@ class Dictionary::Word
         @@all.detect {|w| w.word_name == search}
     end
 end
-# ---------  TO-DO LIST ---------
-# formatting definition ??? (cli)
-#  color coding gem ? or diplay as table. 'tty Table gem'
