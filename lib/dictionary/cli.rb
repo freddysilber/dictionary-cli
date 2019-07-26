@@ -63,8 +63,12 @@ class Dictionary::CLI
             @searched = Dictionary::Word.find_a_word(search)
             if @searched == nil || @searched == []
                 word = Dictionary::Scraper.search_for_word(search)
-                w = Dictionary::Word.new_word_from_search(word)
-                @searched = w
+                if word != {} || word != nil
+                    w = Dictionary::Word.new_word_from_search(word)
+                    @searched = w
+                end
+            else
+                puts "Sorry we couldn't find the word you searched. Please try again or change spelling."
             end
         end
     end

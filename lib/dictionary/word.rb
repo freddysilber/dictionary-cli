@@ -8,7 +8,7 @@ class Dictionary::Word
         @word_name = word_name
         @date = date
         @part_of_speech = part_of_speech
-        pronounciation = pronounciation
+        @pronounciation = pronounciation
         @definition = definition
     end
     def self.new_word_of_the_day(hash)
