@@ -11,8 +11,8 @@ A Merriam-Webster Dictionary Gem.
 
 1. Fork and Clone this repo to your desktop
 2. 'cd' to the folder
-3. Run './bin/dictionary'
-4. Learn a word
+3. Run './bin/dictionary'. If you get an error, try running 'bundle install' first
+4. Learn a word.. or two
 
 ```ruby
 gem 'dictionary' 
@@ -30,7 +30,8 @@ Or install it yourself as:
 
 ## How To Use
 
-Search in the command line for a word and recieve its definition as well as the Word of the Day!
+Search in the command line for a word and recieve its definition as well as the Word of the Day! After forking this repo and getting the gem installed, open a new terminal window and 'cd' to the /dictionary-cli folder you just cloned.
+When inside the folder, run './bin/dictionary' in the command prompt.
 
 <!-- ## Development
 
