@@ -1,4 +1,3 @@
-require_relative 'scraper.rb'
 class Dictionary::Word
     attr_accessor :date, :word_name, :part_of_speech, :definition, :pronounciation
     @@all = []

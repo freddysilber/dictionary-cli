@@ -1,4 +1,3 @@
-require_relative 'word.rb'
 class Dictionary::Scraper
     @@exception_count = 0
     def self.get_word_of_day

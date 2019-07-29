@@ -1,5 +1,4 @@
 # CLI Controller
-require 'colorize'
 class Dictionary::CLI
     def call
         welcome_message
@@ -13,7 +12,7 @@ class Dictionary::CLI
     def welcome_message
         puts "\n----------------------------------------------------------------".cyan
         puts
-        puts "\tWelxome to Merriam Webster online Dictionary!".colorize(:light_magenta)
+        puts "\tWelcome to Merriam Webster online Dictionary!".colorize(:light_magenta)
         puts
         puts "\tDate: #{Date.today}".colorize(:light_yellow)
         puts
