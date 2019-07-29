@@ -59,8 +59,8 @@ class Dictionary::CLI
     def find_word
         if @exit != true
             search = @word_to_search.downcase
-            @searched = Dictionary::Word.find_a_word(search)
-            if @searched != nil || @searched != []
+            @searched = Dictionary::Word.find_a_word(search.downcase)
+            if @searched == nil || @searched == []
                 word = Dictionary::Scraper.search_for_word(search)
                 if word != nil
                     w = Dictionary::Word.new_word_from_search(word)

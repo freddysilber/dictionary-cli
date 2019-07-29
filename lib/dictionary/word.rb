@@ -1,8 +1,6 @@
 class Dictionary::Word
     attr_accessor :date, :word_name, :part_of_speech, :definition, :pronounciation, :word_type
     @@all = []
-    # @@words_of_the_day = []
-    # @@searched_words = []
     def initialize(word_name = nil, date = nil, part_of_speech = nil, definition= nil, pronounciation = nil, word_type = nil)
         @word_name = word_name
         @date = date
@@ -18,8 +16,8 @@ class Dictionary::Word
         word.part_of_speech = hash[:part_of_speech]
         word.definition = hash[:definition]
         word.pronounciation = hash[:pronounciation]
+        word.word_type = hash[:word_type]
         @@all << word
-        # @@words_of_the_day << word
         word
     end
     def self.new_word_from_search(hash)
@@ -29,8 +27,8 @@ class Dictionary::Word
         word.part_of_speech = hash[:part_of_speech]
         word.definition = hash[:definition]
         word.pronounciation = hash[:pronounciation]
+        word.word_type = hash[:word_type]
         @@all << word
-        # @@searched_words << word
         word
     end
     def self.all
@@ -43,14 +41,14 @@ class Dictionary::Word
         @@searched_words
     end
     def self.todays_word
-        # @@words_of_the_day.detect {|w| w.date == Date.today}
         @@all.detect {|w| w.date == Date.today}
     end
     def self.find_a_word(search)
-        # @@all.detect {|w| w.word_name == search}
-        @@all.each do |w|
-            if w.word_name == search && w.word_type == 'search'
-                return w
+        @@all.detect do |w|
+            if w.word_name == search
+                w
+            else
+                nil
             end
         end
     end
