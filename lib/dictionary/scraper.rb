@@ -12,11 +12,13 @@ class Dictionary::Scraper
         word_of_the_day[:pronounciation] = pronounciation
         word_of_the_day[:definition]= definition
         word_of_the_day[:date] = Date.today
+        word_of_the_day[:word_type] = 'daily'
         word_of_the_day
     end
     def self.search_for_word(word)
         word_searched = {}
         begin
+            puts "SCRAPING FOR WORD: #{word}"
             doc = Nokogiri::HTML(open("https://www.merriam-webster.com/dictionary/#{word}"))
             wordname = doc.css('.hword')[0].text
             partofspeech = doc.css('.col-lg-12 span')[0].text
@@ -27,6 +29,7 @@ class Dictionary::Scraper
             word_searched[:part_of_speech] = partofspeech
             word_searched[:pronounciation] = pronounciation
             word_searched[:definition] = definition
+            word_searched[:word_type] = 'search'
         rescue StandardError => e
             word_searched = nil
             # puts e
