@@ -1,5 +1,3 @@
 #!/usr/bin/ruby
 require './lib/dictionary'
-# require "bundler/setup"
-# require "dictionary"
 Dictionary::CLI.new.call
