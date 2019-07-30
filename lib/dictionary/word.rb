@@ -35,10 +35,22 @@ class Dictionary::Word
         @@all
     end
     def self.words_of_the_day
-        @@words_of_the_day
+        words = []
+        @@all.each do |w|
+            if w.word_type == "daily"
+                words << w
+            end
+        end
+        words
     end
     def self.searched_words
-        @@searched_words
+        searched_words = []
+        @@all.each do |w|
+            if w.word_type == "search"
+                searched_words << w
+            end
+        end
+        searched_words
     end
     def self.todays_word
         @@all.detect {|w| w.date == Date.today}
