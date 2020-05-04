@@ -1,5 +1,7 @@
 class Dictionary::Scraper
+
     @@exception_count = 0
+    
     def self.get_word_of_day
         word_of_the_day = {}
         doc = Nokogiri::HTML(open("https://www.merriam-webster.com/word-of-the-day"))
@@ -15,6 +17,7 @@ class Dictionary::Scraper
         word_of_the_day[:word_type] = "daily"
         word_of_the_day
     end
+  
     def self.search_for_word(word)
         word_searched = {}
         begin

@@ -1,6 +1,9 @@
 class Dictionary::Word
+
     attr_accessor :date, :word_name, :part_of_speech, :definition, :pronounciation, :word_type
+    
     @@all = []
+    
     def initialize(word_name = nil, date = nil, part_of_speech = nil, definition= nil, pronounciation = nil, word_type = nil)
         @word_name = word_name
         @date = date
@@ -9,6 +12,7 @@ class Dictionary::Word
         @definition = definition
         @word_type = word_type
     end
+   
     def self.new_word_of_the_day(hash)
         word = self.new
         word.word_name = hash[:word_name]
@@ -20,6 +24,7 @@ class Dictionary::Word
         @@all << word
         word
     end
+   
     def self.new_word_from_search(hash)
         word = self.new
         word.word_name = hash[:word_name]
@@ -31,9 +36,11 @@ class Dictionary::Word
         @@all << word
         word
     end
+    
     def self.all
         @@all
     end
+    
     def self.words_of_the_day
         words = []
         @@all.each do |w|
@@ -43,6 +50,7 @@ class Dictionary::Word
         end
         words
     end
+    
     def self.searched_words
         searched_words = []
         @@all.each do |w|
@@ -52,9 +60,11 @@ class Dictionary::Word
         end
         searched_words
     end
+
     def self.todays_word
         @@all.detect {|w| w.date == Date.today}
     end
+    
     def self.find_a_word(search)
         @@all.detect do |w|
             if w.word_name == search

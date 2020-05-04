@@ -9,6 +9,7 @@ class Dictionary::CLI
         show_searched_word
         search_again?
     end
+
     def welcome_message
         puts "\n----------------------------------------------------------------".cyan
         puts
@@ -18,6 +19,7 @@ class Dictionary::CLI
         puts
         puts "\tThe word of the day is:".colorize(:light_yellow)
     end
+
     def get_todays_word
         w = Dictionary::Word.todays_word
         @word_of_the_day = w
@@ -27,6 +29,7 @@ class Dictionary::CLI
             @word_of_the_day = w
         end
     end
+
     def show_word_of_the_day
         puts "\n-- Word: #{@word_of_the_day.word_name.capitalize.colorize(:light_green)}"
         puts "---- Part of Speech: #{@word_of_the_day.part_of_speech.capitalize.colorize(:light_green)}"
@@ -34,6 +37,7 @@ class Dictionary::CLI
         puts "---- Definition: #{@word_of_the_day.definition.colorize(:light_green)}"
         puts "\n----------------------------------------------------------------".cyan
     end
+
     def get_user_input
         exit_input = "exit".colorize(:light_red)
         puts "\n-- Search for a word or type '#{exit_input}' . . ."
@@ -56,6 +60,7 @@ class Dictionary::CLI
             end
         end
     end
+
     def find_word
         if @exit != true
             search = @word_to_search.downcase
@@ -71,6 +76,7 @@ class Dictionary::CLI
             end
         end
     end
+
     def show_searched_word
         if @exit != true && @searched != nil
             counter = 1
@@ -98,6 +104,7 @@ class Dictionary::CLI
             }
         end
     end
+
     def search_again?
         if @exit != true
             yes = "Y".colorize(:light_green)
@@ -117,6 +124,7 @@ class Dictionary::CLI
              goodbye_message
         end
     end
+    
     def goodbye_message
         puts "----------------------------------------------------------------".cyan
         puts "See you later!".colorize(:light_yellow)
