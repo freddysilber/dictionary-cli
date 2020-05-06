@@ -1,8 +1,8 @@
 # Dictionary CLI
-A Merriam-Webster Dictionary Gem.
+A Merriam-Webster Dictionary Gem for getting the word of the day and searching definitions for words
 ## CLI Data Gem Portfolio Project
 
-- Dictionary Gem
+- Dictionary CLI Gem
 - Ruby CLI Data Gem Portfolio Project
 - Freddy Silber 
 - Summer 19'
