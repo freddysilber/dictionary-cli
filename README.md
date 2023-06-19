@@ -30,7 +30,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install dictionary
+    $ gem install dictionary_search
 
 ## How To Use
 
@@ -46,6 +46,9 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/dictionary. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+
+- ```gem build dictionary.gemspec```
+- ```gem push dictionary_search-0.1.0.gem```
 
 ## License
 
