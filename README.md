@@ -1,5 +1,7 @@
 # Dictionary CLI
 A Merriam-Webster Dictionary Gem for getting the word of the day and searching definitions for words
+
+[Ruby Gems Install](https://rubygems.org/gems/dictionary_search)
 ## CLI Data Gem Portfolio Project
 
 - Dictionary CLI Gem
