@@ -5,7 +5,7 @@ class Dictionary::Scraper
     def self.get_word_of_day
         word_of_the_day = {}
         doc = Nokogiri::HTML(open("https://www.merriam-webster.com/word-of-the-day"))
-        wordname = doc.css('.word-header .word-and-pronunciation h1').text
+        wordname = doc.css('.word-header .word-and-pronunciation h2').text
         partofspeech = doc.css('.main-attr').text
         pronounciation = doc.css('.word-syllables').text
         definition = doc.css('.wod-definition-container p')[0].text
@@ -22,11 +22,13 @@ class Dictionary::Scraper
         word_searched = {}
         begin
             doc = Nokogiri::HTML(open("https://www.merriam-webster.com/dictionary/#{word}"))
+            
             wordname = doc.css('.hword')[0].text
-            partofspeech = doc.css('.col-lg-12 span')[0].text
-            pronounciation = doc.css('.pr')[0].text
+            partofspeech = doc.css('.parts-of-speech a')[0].text
+            pronounciation = doc.css('.play-pron-v2')[0].text
             word_definition = doc.css('.dtText').text
             definition = word_definition.to_s.gsub("\n", "")
+            
             word_searched[:word_name] = wordname
             word_searched[:part_of_speech] = partofspeech
             word_searched[:pronounciation] = pronounciation
