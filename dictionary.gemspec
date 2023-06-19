@@ -6,7 +6,7 @@ Gem::Specification.new do |spec|
   spec.name          = "dictionary"
   spec.version       = Dictionary::VERSION
   spec.authors       = ["Freddy Silber"]
-  spec.email         = ["freddy.silber@cloudcoach.com"]
+  spec.email         = ["freddy.silber@gmail.com"]
 
   spec.summary       = %q{summary.}
   spec.description   = %q{dictionary cli.}
