@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    dictionary (0.1.0)
+    dictionary_search (0.0.1)
       colorize
       nokogiri
 
@@ -10,11 +10,11 @@ GEM
   specs:
     colorize (0.8.1)
     diff-lcs (1.3)
-    mini_portile2 (2.8.1)
-    nokogiri (1.14.3)
-      mini_portile2 (~> 2.8.0)
+    mini_portile2 (2.8.5)
+    nokogiri (1.16.2)
+      mini_portile2 (~> 2.8.2)
       racc (~> 1.4)
-    racc (1.6.2)
+    racc (1.7.3)
     rake (13.0.1)
     rspec (3.9.0)
       rspec-core (~> 3.9.0)
@@ -36,7 +36,7 @@ PLATFORMS
 DEPENDENCIES
   bundler (~> 2.0)
   colorize
-  dictionary!
+  dictionary_search!
   nokogiri
   rake (~> 13.0)
   rspec (~> 3.0)
